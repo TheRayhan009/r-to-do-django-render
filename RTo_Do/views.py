@@ -350,4 +350,3 @@ def logresettask(request):
         "passw":passw,
     }
     return render(request,"logOutReset.html",ele)
-
