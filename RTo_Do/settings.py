@@ -95,6 +95,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CRON_CLASSES = [
+    'datas.cron.PrintSomethingCronJob',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
