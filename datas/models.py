@@ -21,3 +21,9 @@ class Task(models.Model):
     EndDate = models.CharField(max_length=55 ,null=True)
     EndTime = models.CharField(max_length=55 ,null=True)
     # priority = models.CharField(max_length=10, choices=[('low', 'Low'), ('medium', 'Medium'), ('high', 'High')], default='low')
+
+class cronProxy(models.Model):
+    rendom_num=models.CharField(max_length=255 ,null=True)
+
+    def __str__(self):
+        return self.rendom_num

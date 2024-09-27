@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 import dj_database_url
@@ -27,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_crontab",
     "datas",
 ]
 
@@ -95,8 +95,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CRON_CLASSES = [
-    'datas.cron.PrintSomethingCronJob',
+CRONJOBS = [
+    ('*/1 * * * *', 'datas.cron.numm')
 ]
 
 # Internationalization
