@@ -1,9 +1,14 @@
-from .models import cronProxy
-import random
+from apscheduler.schedulers.background import BackgroundScheduler
+import time
 
-def numm():
-    x=random.randint(1,100)
-    data = cronProxy(
-        rendom_num=x,
-    )
-    data.save()
+scheduler = BackgroundScheduler(timezone="Asia/Dhaka")
+scheduler.start()
+
+def a():
+    print("Yoooo!")
+    
+# Schedule the job to run at 18:10 (6:10 PM)
+job = scheduler.add_job(a, 'cron', hour="18", minute="10")
+
+while True:
+    time.sleep(2)  # Keeps the program running to allow the scheduler to work
