@@ -20,7 +20,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    "django_crontab",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -95,9 +94,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# CRONJOBS = [
-#     ('*/1 * * * *', 'datas.cron.numm')
-# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -128,4 +124,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'therayhan009@gmail.com'
-EMAIL_HOST_PASSWORD = 'gewhwibgf*****ltsi'
+EMAIL_HOST_PASSWORD = 'gewhwibgfrjwltsi'
