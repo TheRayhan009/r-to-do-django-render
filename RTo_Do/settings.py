@@ -124,4 +124,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'therayhan009@gmail.com'
-EMAIL_HOST_PASSWORD = 'gewhwibgfrjwltsi'
+EMAIL_HOST_PASSWORD = 'zhwidotutipstzdm'
