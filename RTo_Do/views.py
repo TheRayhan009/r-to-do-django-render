@@ -4,7 +4,7 @@ from datetime import datetime
 from django.core.mail import send_mail ,EmailMultiAlternatives
 from django.utils.html import strip_tags
 import random
-
+import pytz
 def home(request):
     log=request.session.get("logornot")
     if log:
@@ -49,7 +49,8 @@ def home(request):
             elif search_task_button=="True":
                 search_task=request.POST.get("UTsearch")
                 result=Task.objects.filter(user_task__icontains=search_task,task_user_name=Uname)
-                start_date = datetime.now()
+                D_start_time=pytz.timezone('Asia/Dhaka')
+                start_date = datetime.now(D_start_time)
                 user_all_tasks=Task.objects.filter(task_user_name=Uname)
                 deadLine_D=[]
                 deadLine_H=[]
@@ -118,7 +119,8 @@ def home(request):
             return redirect("/")
         result=Task.objects.filter(task_user_name=Uname)
         pintask = Users.objects.get(username=Uname).T_task - Users.objects.get(username=Uname).C_task
-        start_date = datetime.now()
+        D_start_time=pytz.timezone('Asia/Dhaka')
+        start_date = datetime.now(D_start_time)
         user_all_tasks=Task.objects.filter(task_user_name=Uname)
         deadLine_D=[]
         deadLine_H=[]
