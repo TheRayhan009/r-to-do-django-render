@@ -50,39 +50,39 @@ def home(request):
                 search_task=request.POST.get("UTsearch")
                 result=Task.objects.filter(user_task__icontains=search_task,task_user_name=Uname)
                 D_start_time = pytz.timezone('Asia/Dhaka')
-start_date = datetime.now(D_start_time)
+                start_date = datetime.now(D_start_time)
 
-user_all_tasks = Task.objects.filter(task_user_name=Uname)
-deadLine_D = []
-deadLine_H = []
-deadLine_M = []
-deadLine_S = []
-
-for l in user_all_tasks:
-    user_last_time = l.EndTime
-    user_last_date = l.EndDate
-    user_last_date = user_last_date.replace("-", "/")
-    
-    # Parse the naive datetime first
-    end_date_naive = datetime.strptime(f"{user_last_date} {user_last_time}", "%Y/%m/%d %I:%M %p")
-    
-    # Localize the naive datetime to the same timezone (Asia/Dhaka)
-    end_date = D_start_time.localize(end_date_naive)
-
-    # Now subtract the timezone-aware datetimes
-    time_difference = end_date - start_date
-    
-    total_day = int(((time_difference.total_seconds() / 60) / 60) / 24)
-    total_hour = int((time_difference.total_seconds() / 60) / 60)
-    total_minute = int(time_difference.total_seconds() / 60)
-    total_second = int(time_difference.total_seconds())
-    
-    deadLine_D.append(total_day)
-    deadLine_H.append(total_hour)
-    deadLine_M.append(total_minute)
-    deadLine_S.append(total_second)
-
-tasks_with_deadlines = zip(result, deadLine_D, deadLine_H, deadLine_M, deadLine_S)
+                user_all_tasks = Task.objects.filter(task_user_name=Uname)
+                deadLine_D = []
+                deadLine_H = []
+                deadLine_M = []
+                deadLine_S = []
+                
+                for l in user_all_tasks:
+                    user_last_time = l.EndTime
+                    user_last_date = l.EndDate
+                    user_last_date = user_last_date.replace("-", "/")
+                    
+                    # Parse the naive datetime first
+                    end_date_naive = datetime.strptime(f"{user_last_date} {user_last_time}", "%Y/%m/%d %I:%M %p")
+                    
+                    # Localize the naive datetime to the same timezone (Asia/Dhaka)
+                    end_date = D_start_time.localize(end_date_naive)
+                
+                    # Now subtract the timezone-aware datetimes
+                    time_difference = end_date - start_date
+                    
+                    total_day = int(((time_difference.total_seconds() / 60) / 60) / 24)
+                    total_hour = int((time_difference.total_seconds() / 60) / 60)
+                    total_minute = int(time_difference.total_seconds() / 60)
+                    total_second = int(time_difference.total_seconds())
+                    
+                    deadLine_D.append(total_day)
+                    deadLine_H.append(total_hour)
+                    deadLine_M.append(total_minute)
+                    deadLine_S.append(total_second)
+                
+                tasks_with_deadlines = zip(result, deadLine_D, deadLine_H, deadLine_M, deadLine_S)
                 
                 pintask = Users.objects.get(username=Uname).T_task - Users.objects.get(username=Uname).C_task
                 ele={
@@ -131,39 +131,38 @@ tasks_with_deadlines = zip(result, deadLine_D, deadLine_H, deadLine_M, deadLine_
         result=Task.objects.filter(task_user_name=Uname)
         pintask = Users.objects.get(username=Uname).T_task - Users.objects.get(username=Uname).C_task
         D_start_time = pytz.timezone('Asia/Dhaka')
-start_date = datetime.now(D_start_time)
-
-user_all_tasks = Task.objects.filter(task_user_name=Uname)
-deadLine_D = []
-deadLine_H = []
-deadLine_M = []
-deadLine_S = []
-
-for l in user_all_tasks:
-    user_last_time = l.EndTime
-    user_last_date = l.EndDate
-    user_last_date = user_last_date.replace("-", "/")
-    
-    # Parse the naive datetime first
-    end_date_naive = datetime.strptime(f"{user_last_date} {user_last_time}", "%Y/%m/%d %I:%M %p")
-    
-    # Localize the naive datetime to the same timezone (Asia/Dhaka)
-    end_date = D_start_time.localize(end_date_naive)
-
-    # Now subtract the timezone-aware datetimes
-    time_difference = end_date - start_date
-    
-    total_day = int(((time_difference.total_seconds() / 60) / 60) / 24)
-    total_hour = int((time_difference.total_seconds() / 60) / 60)
-    total_minute = int(time_difference.total_seconds() / 60)
-    total_second = int(time_difference.total_seconds())
-    
-    deadLine_D.append(total_day)
-    deadLine_H.append(total_hour)
-    deadLine_M.append(total_minute)
-    deadLine_S.append(total_second)
-
-tasks_with_deadlines = zip(result, deadLine_D, deadLine_H, deadLine_M, deadLine_S)
+        start_date = datetime.now(D_start_time)
+        user_all_tasks = Task.objects.filter(task_user_name=Uname)
+        deadLine_D = []
+        deadLine_H = []
+        deadLine_M = []
+        deadLine_S = []
+        
+        for l in user_all_tasks:
+            user_last_time = l.EndTime
+            user_last_date = l.EndDate
+            user_last_date = user_last_date.replace("-", "/")
+            
+            # Parse the naive datetime first
+            end_date_naive = datetime.strptime(f"{user_last_date} {user_last_time}", "%Y/%m/%d %I:%M %p")
+            
+            # Localize the naive datetime to the same timezone (Asia/Dhaka)
+            end_date = D_start_time.localize(end_date_naive)
+        
+            # Now subtract the timezone-aware datetimes
+            time_difference = end_date - start_date
+            
+            total_day = int(((time_difference.total_seconds() / 60) / 60) / 24)
+            total_hour = int((time_difference.total_seconds() / 60) / 60)
+            total_minute = int(time_difference.total_seconds() / 60)
+            total_second = int(time_difference.total_seconds())
+            
+            deadLine_D.append(total_day)
+            deadLine_H.append(total_hour)
+            deadLine_M.append(total_minute)
+            deadLine_S.append(total_second)
+        
+        tasks_with_deadlines = zip(result, deadLine_D, deadLine_H, deadLine_M, deadLine_S)
         ele={
             "tasks":Task.objects.filter(task_user_name=Uname),
             "log":log,
