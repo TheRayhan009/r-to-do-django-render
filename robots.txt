@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://r-to-do.onrender.com/sitemap.xml
