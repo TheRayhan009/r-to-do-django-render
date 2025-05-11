@@ -71,6 +71,7 @@ WSGI_APPLICATION = 'RTo_Do.wsgi.application'
 # }
 
 DATABASES={
+    # "default":dj_database_url.parse("postgresql://lovefix_owner:X5y8mvPDWApa@ep-billowing-surf-a1qrsj1m.ap-southeast-1.aws.neon.tech/lovefix?sslmode=require")
     "default":dj_database_url.parse("postgres://avnadmin:AVNS_WUtymMnlTRqO8VRLnNH@r-to-do-django-rayblogs.d.aivencloud.com:10256/defaultdb?sslmode=require")
     # "default":dj_database_url.parse(os.environ.get("DATABASES_URL"))
 }
